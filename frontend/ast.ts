@@ -16,6 +16,7 @@ export type NodeType =
     | "UntilStatement"
     | "StringLiteral"
     | "ArrayLiteral"
+    | "ImportStatement"
 
 export interface Stmt {
     kind: NodeType
@@ -65,6 +66,12 @@ export interface UntilStatement extends Stmt {
     kind: "UntilStatement";
     test: Expr;
     body: Stmt[];
+}
+
+export interface ImportStatement extends Stmt {
+    kind: "ImportStatement";
+    body: Stmt[];
+    filename: Expr;
 }
 
 export interface Expr extends Stmt {}
